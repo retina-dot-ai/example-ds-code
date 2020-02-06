@@ -12,9 +12,8 @@ find . -name ".Rproj.user" | xargs rm -rf
 
 bash run_clean.sh
 
-echo "** access RStudio Server at http://localhost:8787/ with user: rstudio pass: rstudio"
+printf "** access RStudio Server at \e[92mhttp://localhost:8787/\e[39m with user: rstudio pass: rstudio\n"
 docker run --rm -p 8787:8787 \
-  -e PASSWORD=localuser \
   --memory="12g" --memory-swap="100g" \
   -v `pwd`:/home/rstudio \
   retina/example-docker-r-rstudio
